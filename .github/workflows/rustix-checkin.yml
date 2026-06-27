@@ -1,11 +1,14 @@
 name: rustix-auto-alive
 
 on:
-  # 定时触发：默认每 6 小时运行一次（可按需调整 cron 表达式）
-  schedule:
-    - cron: '0 */6 * * *'
+  # 定时触发（已停用，改由 Uptime Kuma 触发）
+  # schedule:
+  #   - cron: '0 */6 * * *'
   # 支持手动触发
   workflow_dispatch:
+  # 由 Uptime Kuma Webhook 触发（服务器离线时）
+  repository_dispatch:
+    types: [rustix]
 
 # 同一时间只允许一个实例运行
 concurrency:
@@ -14,6 +17,8 @@ concurrency:
 
 jobs:
   rustix-alive:
+    # workflow_dispatch 始终执行；repository_dispatch 仅在 DOWN(status=0) 时执行
+    if: github.event_name != 'repository_dispatch' || github.event.client_payload.heartbeat.status == 0
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
