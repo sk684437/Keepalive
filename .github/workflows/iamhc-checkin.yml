@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      actions: write
+    
     steps:
       - name: 📥 检出代码
         uses: actions/checkout@v4
@@ -42,7 +42,7 @@ jobs:
         if: always()
         working-directory: ./iamhc
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           if [ -f session.cookie.b64 ]; then
             SESSION_VALUE=$(cat session.cookie.b64)
