@@ -5,7 +5,8 @@
 ## 目录结构
 
 ```
-├── .github/workflows/checkin.yml   # GitHub Actions 定时工作流
+.github/workflows/checkin.yml
+iamhc
 ├── checkin.py                       # 主签到脚本
 ├── notify.py                        # TG 通知组件（独立）
 ├── requirements.txt                 # Python 依赖
