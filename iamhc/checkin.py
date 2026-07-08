@@ -40,10 +40,10 @@ log = logging.getLogger("checkin")
 # ---------------------------------------------------------------------------
 
 def mask_username(name: str) -> str:
-    """用户名脱敏：显示前 4 位 + *****"""
+    """用户名脱敏：显示前 4 位 + ●●●●●"""
     if not name:
-        return "*****"
-    return (name[:4] + "*****") if len(name) > 4 else (name + "*****")
+        return "●●●●●"
+    return (name[:4] + "●●●●●") if len(name) > 4 else (name + "●●●●●")
 
 
 def quota_to_usd(quota: int) -> float:
