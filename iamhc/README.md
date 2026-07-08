@@ -35,8 +35,6 @@
 |-------------|-----|------|
 | `GH_TOKEN` | `ghp_xxxx...` | GitHub PAT，需 `repo` 或 `actions-variables: write` 权限 |
 
-> **创建 PAT**：GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens → 选择仓库 `yutian81/Keepalive` → 勾选 **Actions → Variables: write** 权限
-
 ### TG 通知（可选）
 
 | Secret 名称 | 值 | 说明 |
